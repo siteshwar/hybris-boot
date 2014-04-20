@@ -314,7 +314,7 @@ else
 
     do_mount_devprocsys
 
-    # run_debug_session "init-debug in real rootfs"
+    run_debug_session "init-debug in real rootfs"
 
     # If we don't do this then udev will not be able to create /dev/block/*
     rm /dev/block
