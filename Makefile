@@ -59,6 +59,9 @@ zImage-grouper:
 zImage-tilapia: zImage-grouper
 	mv zImage-grouper zImage-tilapia
 
+zImage-hammerhead:
+	cp  ../../out/target/product/hammerhead/obj/KERNEL_OBJ/arch/arm/boot/zImage-dtb zImage-hammerhead
+
 boot.img-$(DEVICE): zImage-$(DEVICE) initramfs.gz-$(DEVICE)
 	mkbootimg --kernel ./zImage-$(DEVICE) --ramdisk ./initramfs.gz-$(DEVICE) $(MKBOOTIMG_PARAMS) --output ./boot.img-$(DEVICE)
 
