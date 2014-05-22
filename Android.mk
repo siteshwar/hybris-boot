@@ -40,10 +40,10 @@ HYBRIS_R_ALWAYSDEBUG := 1
 HYBRIS_FIXUP_MOUNTS := $(LOCAL_PATH)/fixup-mountpoints
 
 # Process CyanogenMod recovery.fstab file for required partition information.
-HYBRIS_FSTAB := device/*/$(TARGET_DEVICE)/recovery.fstab
+HYBRIS_FSTAB := device/*/$(TARGET_DEVICE)/fstab.hammerhead
 
-HYBRIS_BOOT_PART := $(strip $(shell cat $(HYBRIS_FSTAB) | sed -e 's/\t/ /g' | sed -e 's/  */ /g' | grep /boot | cut -f3 -d' '))
-HYBRIS_DATA_PART := $(strip $(shell cat $(HYBRIS_FSTAB) | sed -e 's/\t/ /g' | sed -e 's/  */ /g' | grep /data | cut -f3 -d' '))
+HYBRIS_BOOT_PART := $(strip $(shell cat $(HYBRIS_FSTAB) | sed -e 's/\t/ /g' | sed -e 's/  */ /g' | grep /boot | cut -f1 -d' '))
+HYBRIS_DATA_PART := $(strip $(shell cat $(HYBRIS_FSTAB) | sed -e 's/\t/ /g' | sed -e 's/  */ /g' | grep /data | cut -f1 -d' '))
 
 $(warning ********************* /boot should live on $(HYBRIS_BOOT_PART))
 $(warning ********************* /data should live on $(HYBRIS_DATA_PART))
